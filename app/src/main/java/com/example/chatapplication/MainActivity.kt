@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,9 +25,11 @@ class MainActivity : ComponentActivity() {
     private lateinit var mDbRef : DatabaseReference
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().getReference()
@@ -37,6 +40,16 @@ class MainActivity : ComponentActivity() {
         userRecyclerView = findViewById(R.id.userRecyclerView)
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter=adapter
+
+
+        val logoutBtn = findViewById<Button>(R.id.btnLogout)
+        logoutBtn.setOnClickListener {
+            mAuth.signOut()
+            val intent = Intent(this@MainActivity, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         mDbRef.child("user").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -54,6 +67,7 @@ class MainActivity : ComponentActivity() {
 
             }
 
+
             override fun onCancelled(error: DatabaseError) {
 
             }
@@ -63,21 +77,12 @@ class MainActivity : ComponentActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId== R.id.logout){
-            mAuth.signOut()
-            val intent = Intent(this@MainActivity,Login::class.java)
-            finish()
-            startActivity(intent)
+    //override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    //    menuInflater.inflate(R.menu.menu,menu)
+    //    return super.onCreateOptionsMenu(menu)
+    //}
 
-            return true
-        }
-        return true
-    }
+
 }
 

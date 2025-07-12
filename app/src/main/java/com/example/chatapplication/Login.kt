@@ -1,5 +1,6 @@
 package com.example.chatapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
@@ -27,6 +28,7 @@ class Login : ComponentActivity() {
     private lateinit var btnSignUp: Button
     private lateinit var mAuth : FirebaseAuth
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -37,7 +39,7 @@ class Login : ComponentActivity() {
         edtEmail= findViewById(R.id.edt_email)
         edtPassword = findViewById(R.id.edt_password)
         btnLogin = findViewById(R.id.btnLogin)
-        btnSignUp = findViewById(R.id.btnsignUp)
+        btnSignUp = findViewById(R.id.register)
 
         btnSignUp.setOnClickListener(){
             val intent = Intent(this, SignUp ::class.java)

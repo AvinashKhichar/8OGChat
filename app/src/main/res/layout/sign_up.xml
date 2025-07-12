@@ -1,81 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="32dp"
-    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SignUp">
 
-    <!-- Logo -->
     <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:contentDescription="App Logo"
-        android:layout_marginTop="48dp"/>
-
-    <!-- Username Field -->
-    <EditText
-        android:id="@+id/edt_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/app_logo"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:background="@drawable/edt_background"
-        android:paddingStart="12dp"
-        android:textSize="16sp"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"/>
 
-    <!-- Email Field -->
-    <EditText
-        android:id="@+id/edt_email"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/edt_name"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/edt_background"
-        android:paddingStart="12dp"
-        android:textSize="16sp"/>
+        android:layout_height="match_parent">
 
-    <!-- Password Field -->
-    <EditText
-        android:id="@+id/edt_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/edt_email"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:background="@drawable/edt_background"
-        android:paddingStart="12dp"
-        android:textSize="16sp"/>
+        <ImageView
+            android:id="@+id/appName"
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            android:contentDescription="App Logo"
+            android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-    <!-- Sign Up Button -->
-    <Button
-        android:id="@+id/btnsignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edt_password"
-        android:layout_marginTop="24dp"
-        android:layout_centerHorizontal="true"
-        android:text="Sign Up"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:background="@drawable/btn_background"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"/>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/go"
+            style="@style/h4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Let's Register"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+
+        <TextView
+            android:id="@+id/registernow"
+            style="@style/h2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Already Registered? Login now!"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/go" />
+
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edittextheight"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/registernow" />
+
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edittextheight"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/edittextheight"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+
+
+        <Button
+            android:id="@+id/btnsignUp"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:layout_marginTop="50dp"
+            android:text="Register"
+            style="@style/blueButtonStyle"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+
+
+
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

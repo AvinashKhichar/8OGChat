@@ -4,8 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatActivity"
-    android:layout_marginTop="20dp">
+    tools:context=".ChatActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"
+        />
+
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,7 +21,8 @@
         android:layout_above="@+id/linearlayout"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"/>
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -29,10 +38,13 @@
             android:layout_width="wrap_content"
             android:hint="Say Hi!!"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/message_box_background"
             android:paddingLeft="10dp"
-            android:layout_weight="100"/>
+            android:layout_weight="100"
+            style="@style/h2"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
         <ImageView
             android:id="@+id/sentButton"
             android:layout_width="50dp"
@@ -41,4 +53,6 @@
             android:layout_weight="20"/>
 
     </LinearLayout>
+
+
 </RelativeLayout>
