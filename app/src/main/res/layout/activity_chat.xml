@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ChatActivity">
 
 
@@ -22,7 +23,8 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
 
     <LinearLayout
         android:id="@+id/linearlayout"
